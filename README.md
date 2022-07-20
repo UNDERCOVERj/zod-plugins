@@ -93,8 +93,15 @@ Teams using Nx gain the advantage of building full-stack applications with their
 
 Visit [Nx Cloud](https://nx.app/) to learn more.
 
+## build
+
+```
+nx build
+```
+
 ## publish
 
 ```
+// 需要先在外层build
 nx publish zod-describe --ver=0.0.1
 ```

@@ -1,6 +1,6 @@
 {
   "name": "@zod-plugins/zod-describe",
-  "version": "0.0.1",
+  "version": "0.0.5",
   "type": "commonjs",
   "dependencies": {
     "@swc/helpers": "~0.3.3"
