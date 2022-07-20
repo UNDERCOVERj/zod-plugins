@@ -1,0 +1,13 @@
+{
+  "name": "@zod-plugins/zod-describe",
+  "version": "0.0.1",
+  "type": "commonjs",
+  "dependencies": {
+    "@swc/helpers": "~0.3.3"
+  },
+  "devDependencies": {},
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}
