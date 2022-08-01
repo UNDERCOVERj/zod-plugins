@@ -65,13 +65,15 @@ describe('utils', () => {
       c: z.number().optional(),
     });
 
-    const result2 = preParseFromRecordString(schema2).safeParse({
-      a: '1',
-      b: {
-        a: '13',
-        c: 2,
-      },
-    });
+    const result2 = preParseFromRecordString(schema2).safeParse(
+      stringifyDataToRecordString({
+        a: '1',
+        b: {
+          a: '13',
+          c: 2,
+        },
+      }),
+    );
 
     expect(result2.success).toBeTruthy();
   });
