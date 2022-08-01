@@ -1,0 +1,99 @@
+{
+  "[css][less][scss]": {
+    "editor.defaultFormatter": "stylelint.vscode-stylelint",
+    "editor.formatOnSave": true
+  },
+  "[html][xml]": {
+    "editor.wordWrap": "on"
+  },
+  "[json][jsonc][markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[javascript][javascriptreact][typescript][typescriptreact]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.formatOnSave": true
+  },
+  "cSpell.diagnosticLevel": "Hint",
+  "cSpell.words": [
+    "aweme",
+    "bnpm",
+    "browserslist",
+    "byted",
+    "clsx",
+    "douyin",
+    "droplist",
+    "escope",
+    "estraverse",
+    "estree",
+    "forkable",
+    "globby",
+    "gulu",
+    "iife",
+    "imhele",
+    "immed",
+    "immer",
+    "jsxdev",
+    "lightcharts",
+    "listr",
+    "nuxt",
+    "oceanengine",
+    "oclif",
+    "okee",
+    "pnpm",
+    "postpublish",
+    "reduck",
+    "saiyan",
+    "semibold",
+    "slardar",
+    "stylelint",
+    "stylelintrc",
+    "tailwindcss",
+    "uikit"
+  ],
+  "css.validate": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
+  "editor.rulers": [100],
+  "emmet.triggerExpansionOnTab": true,
+  "eslint.alwaysShowStatus": true,
+  "eslint.format.enable": true,
+  "eslint.lintTask.enable": true,
+  "eslint.options": { "overrideConfig": { "rules": { "no-debugger": "off" } } },
+  "flow.enabled": false,
+  "htmlhint.enable": true,
+  "javascript.format.enable": false,
+  "javascript.validate.enable": false,
+  "json.format.enable": true,
+  "less.validate": false,
+  "scss.validate": false,
+  "search.exclude": {
+    "**/pnpm-lock.yaml": true,
+    ".vscode/**": true,
+    "monorepo.code-workspace": true
+  },
+  "search.useIgnoreFiles": true,
+  "stylelint.enable": true,
+  "todo-tree.general.tags": ["TODO:", "FIXME:"],
+  "todo-tree.highlights.defaultHighlight": { "gutterIcon": true },
+  "todo-tree.highlights.customHighlight": {
+    "TODO:": {
+      "foreground": "#fff",
+      "background": "#ffbd2a",
+      "iconColour": "#ffbd2a"
+    },
+    "FIXME:": {
+      "foreground": "#fff",
+      "background": "#f06292",
+      "icon": "flame",
+      "iconColour": "#f06292"
+    }
+  },
+  "typescript.format.enable": false,
+  "typescript.validate.enable": true,
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}
