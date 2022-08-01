@@ -3,7 +3,8 @@
   "version": "0.0.5",
   "type": "commonjs",
   "dependencies": {
-    "@swc/helpers": "~0.3.3"
+    "@swc/helpers": "~0.3.3",
+    "zod": "^3.17.9"
   },
   "devDependencies": {},
   "publishConfig": {

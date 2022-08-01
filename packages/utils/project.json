@@ -1,42 +1,30 @@
 {
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "packages/zod-describe/src",
+  "sourceRoot": "packages/utils/src",
   "projectType": "library",
   "targets": {
     "build": {
-      "executor": "@nrwl/js:tsc",
+      "executor": "@nrwl/js:swc",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/packages/zod-describe",
-        "main": "packages/zod-describe/src/index.ts",
-        "tsConfig": "packages/zod-describe/tsconfig.lib.json",
-        "assets": ["packages/zod-describe/*.md"]
+        "outputPath": "dist/packages/utils",
+        "main": "packages/utils/src/index.ts",
+        "tsConfig": "packages/utils/tsconfig.lib.json",
+        "assets": ["packages/utils/*.md"]
       }
-    },
-    "publish": {
-      "executor": "@nrwl/workspace:run-commands",
-      "options": {
-        "command": "node tools/scripts/publish.mjs zod-describe {args.ver} {args.tag}"
-      },
-      "dependsOn": [
-        {
-          "projects": "self",
-          "target": "build"
-        }
-      ]
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["packages/zod-describe/**/*.ts"]
+        "lintFilePatterns": ["packages/utils/**/*.ts"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/packages/zod-describe"],
+      "outputs": ["coverage/packages/utils"],
       "options": {
-        "jestConfig": "packages/zod-describe/jest.config.ts",
+        "jestConfig": "packages/utils/jest.config.ts",
         "passWithNoTests": true
       }
     },
@@ -44,7 +32,8 @@
       "executor": "@jscutlery/semver:version",
       "options": {
         "preset": "conventional"
-      }
+      },
+      "postTargets": ["utils:publish", "utils:github"]
     },
     "deploy": {
       "executor": "ngx-deploy-npm:deploy",
