@@ -49,16 +49,10 @@
       }
     },
     "publish": {
-      "executor": "@nrwl/workspace:run-commands",
+      "executor": "ngx-deploy-npm:deploy",
       "options": {
-        "command": "node tools/scripts/publish.mjs zod-describe {args.ver} {args.tag}"
-      },
-      "dependsOn": [
-        {
-          "projects": "self",
-          "target": "build"
-        }
-      ]
+        "access": "public"
+      }
     }
   },
   "tags": []

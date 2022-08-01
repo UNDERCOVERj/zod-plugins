@@ -2,10 +2,10 @@
   "name": "@zod-plugins/utils",
   "version": "0.1.1",
   "type": "commonjs",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "@swc/helpers": "~0.3.3"
   },
-  "devDependencies": {},
   "peerDependencies": {
     "zod": "^3.17.10"
   }

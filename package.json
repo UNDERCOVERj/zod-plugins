@@ -7,11 +7,11 @@
   },
   "private": true,
   "dependencies": {
-    "@swc/helpers": "~0.3.3",
     "tslib": "^2.3.0",
     "zod": "^3.17.10"
   },
   "devDependencies": {
+    "@swc/helpers": "~0.3.3",
     "@commitlint/cli": "^17.0.0",
     "@commitlint/config-conventional": "^17.0.3",
     "@jscutlery/semver": "^2.25.2",
