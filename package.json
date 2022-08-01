@@ -11,7 +11,6 @@
     "zod": "^3.17.10"
   },
   "devDependencies": {
-    "@swc/helpers": "~0.3.3",
     "@commitlint/cli": "^17.0.0",
     "@commitlint/config-conventional": "^17.0.3",
     "@jscutlery/semver": "^2.25.2",
@@ -24,6 +23,7 @@
     "@nrwl/workspace": "14.4.3",
     "@swc/cli": "~0.1.55",
     "@swc/core": "^1.2.173",
+    "@swc/helpers": "~0.3.3",
     "@types/jest": "27.4.1",
     "@types/node": "16.11.7",
     "@typescript-eslint/eslint-plugin": "^5.29.0",
