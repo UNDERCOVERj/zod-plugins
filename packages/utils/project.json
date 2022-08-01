@@ -47,6 +47,18 @@
         "tag": "${tag}",
         "notesFile": "./CHANGELOG.md"
       }
+    },
+    "publish": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "node tools/scripts/publish.mjs zod-describe {args.ver} {args.tag}"
+      },
+      "dependsOn": [
+        {
+          "projects": "self",
+          "target": "build"
+        }
+      ]
     }
   },
   "tags": []
