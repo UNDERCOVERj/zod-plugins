@@ -11,7 +11,9 @@
     "directory": "packages/utils"
   },
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "tslib": "^2.4.0"
+  },
   "peerDependencies": {
     "zod": "^3.17.10"
   }

@@ -32,6 +32,8 @@ describe('utils', () => {
       h: z.number().optional(),
       j: z.nativeEnum(TestEnum),
       k: z.array(z.number()),
+      l: z.preprocess(val => JSON.parse(val as string), z.number().array()),
+      m: z.number().array().array(),
     });
 
     const result = preParseFromRecordString(schema).safeParse(
@@ -48,6 +50,8 @@ describe('utils', () => {
         g: 1,
         j: 'ccc',
         k: [1, 2],
+        l: [1, 2],
+        m: [[1], [2]],
       }),
     );
 

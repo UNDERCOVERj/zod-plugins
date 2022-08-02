@@ -26,9 +26,7 @@ function preParseSingle(schema: z.ZodTypeAny, value?: unknown): any {
     const values = Object.values(schema.enum);
 
     for (let val of values) {
-      if (val === value) {
-        return value;
-      } else if (val === Number(value)) {
+      if (val === value || val === Number(value)) {
         return val;
       }
     }
