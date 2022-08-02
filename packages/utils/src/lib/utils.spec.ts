@@ -1,7 +1,7 @@
 import { preParseFromRecordString } from './utils';
 import { z } from 'zod';
 
-function stringifyDataToRecordString(data: Record<string, any>) {
+function stringifyDataToRecordString(data: Record<string, any>): Record<string, string> {
   return Object.entries(data).reduce(
     (prev, [key, value]) => ({
       ...prev,
@@ -12,7 +12,7 @@ function stringifyDataToRecordString(data: Record<string, any>) {
 }
 
 describe('utils', () => {
-  it('should work', () => {
+  it('should parse object work', () => {
     enum TestEnum {
       a = 1,
       b = 2,
@@ -52,7 +52,9 @@ describe('utils', () => {
     );
 
     expect(result.success).toBeTruthy();
+  });
 
+  it('should parse object has lazy work', () => {
     interface SchemaType {
       a: string;
       b?: SchemaType;
@@ -65,7 +67,7 @@ describe('utils', () => {
       c: z.number().optional(),
     });
 
-    const result2 = preParseFromRecordString(schema2).safeParse(
+    const result = preParseFromRecordString(schema2).safeParse(
       stringifyDataToRecordString({
         a: '1',
         b: {
@@ -75,6 +77,39 @@ describe('utils', () => {
       }),
     );
 
-    expect(result2.success).toBeTruthy();
+    expect(result.success).toBeTruthy();
+  });
+
+  it('should parse lazy object work', () => {
+    interface SchemaType {
+      a: string;
+      b?: SchemaType;
+      c?: number;
+    }
+
+    const schema2: z.ZodType<SchemaType> = z.lazy(() =>
+      z.object({
+        a: z.string(),
+        b: z.lazy(() => schema2).optional(),
+        c: z.number().optional(),
+        d: z
+          .object({
+            a: z.string(),
+          })
+          .optional(),
+      }),
+    );
+
+    const result = preParseFromRecordString(schema2).safeParse(
+      stringifyDataToRecordString({
+        a: '1',
+        b: {
+          a: '13',
+          c: 2,
+        },
+      }),
+    );
+
+    expect(result.success).toBeTruthy();
   });
 });

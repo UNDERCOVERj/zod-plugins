@@ -19,6 +19,16 @@ pnpm i @zod-plugins/utils -D
 ```
 import { preParseFromRecordString } from '@zod-plugins/utils';
 
+function stringifyDataToRecordString(data: Record<string, any>): Record<string, string> {
+  return Object.entries(data).reduce(
+    (prev, [key, value]) => ({
+      ...prev,
+      [key]: typeof value === 'string' ? value : JSON.stringify(value),
+    }),
+    {},
+  );
+}
+
 enum TestEnum {
   a = 1,
   b = 2,
@@ -58,4 +68,21 @@ const result = preParseFromRecordString(schema).safeParse(
 );
 
 expect(result.success).toBeTruthy();
+```
+
+### preParseFromRecordString
+
+根据 schema 第一层的 value 类型，自动 preprocess
+
+```typescript
+const schema = preParseFromRecordString(z.object({
+  a: z.number()
+}));
+
+--->
+
+转换后：
+const schema = z.object({
+  a: z.preprocess(val => Number(val), z.number())
+});
 ```
