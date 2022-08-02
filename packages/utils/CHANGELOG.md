@@ -2,6 +2,8 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.1.8](https://github.com/UNDERCOVERj/zod-plugins/compare/utils-0.1.7...utils-0.1.8) (2022-08-02)
+
 ### [0.1.7](https://github.com/UNDERCOVERj/zod-plugins/compare/utils-0.1.6...utils-0.1.7) (2022-08-02)
 
 ### [0.1.6](https://github.com/UNDERCOVERj/zod-plugins/compare/utils-0.1.5...utils-0.1.6) (2022-08-02)
