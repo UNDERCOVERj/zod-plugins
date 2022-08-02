@@ -13,11 +13,24 @@
         "assets": ["packages/utils/*.md"]
       }
     },
+    "github": {
+      "executor": "@jscutlery/semver:github",
+      "options": {
+        "tag": "${tag}",
+        "notesFile": "./CHANGELOG.md"
+      }
+    },
+    "publish": {
+      "executor": "ngx-deploy-npm:deploy",
+      "options": {
+        "access": "public"
+      }
+    },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["packages/utils/**/*.ts"]
+        "lintFilePatterns": ["packages/utils/**/*.ts", "packages/utils/**/*.spec.ts"]
       }
     },
     "test": {
@@ -31,24 +44,11 @@
     "version": {
       "executor": "@jscutlery/semver:version",
       "options": {
-        "preset": "conventional"
-      },
-      "postTargets": ["utils:publish", "utils:github"]
+        "preset": "conventional",
+        "postTargets": ["utils:publish", "utils:github"]
+      }
     },
     "deploy": {
-      "executor": "ngx-deploy-npm:deploy",
-      "options": {
-        "access": "public"
-      }
-    },
-    "github": {
-      "executor": "@jscutlery/semver:github",
-      "options": {
-        "tag": "${tag}",
-        "notesFile": "./CHANGELOG.md"
-      }
-    },
-    "publish": {
       "executor": "ngx-deploy-npm:deploy",
       "options": {
         "access": "public"
