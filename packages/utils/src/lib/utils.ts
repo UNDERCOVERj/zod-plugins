@@ -68,6 +68,7 @@ export function preParseFromRecordString<
 >(schema: z.ZodObject<T, UnknownKeys, Catchall, Output, Input> | z.ZodType) {
   const newShape: any = {};
 
+  // TODO z.ZodRecord
   const zodObject =
     schema instanceof z.ZodObject
       ? schema
