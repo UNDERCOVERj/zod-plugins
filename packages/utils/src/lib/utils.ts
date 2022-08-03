@@ -25,7 +25,7 @@ function preParseSingle(schema: z.ZodTypeAny, value?: unknown): any {
   if (schema instanceof z.ZodNativeEnum) {
     const values = Object.values(schema.enum);
 
-    for (let val of values) {
+    for (const val of values) {
       if (val === value || val === Number(value)) {
         return val;
       }
@@ -66,9 +66,9 @@ export function preParseFromRecordString<
   Output = z.objectOutputType<T, Catchall>,
   Input = z.objectInputType<T, Catchall>,
 >(schema: z.ZodObject<T, UnknownKeys, Catchall, Output, Input> | z.ZodType) {
-  let newShape: any = {};
+  const newShape: any = {};
 
-  let zodObject =
+  const zodObject =
     schema instanceof z.ZodObject
       ? schema
       : schema instanceof z.ZodLazy && schema.schema instanceof z.ZodObject
