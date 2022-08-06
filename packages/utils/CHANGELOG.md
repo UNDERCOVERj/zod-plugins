@@ -2,6 +2,19 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.1.10](https://github.com/UNDERCOVERj/zod-plugins/compare/utils-0.1.9...utils-0.1.10) (2022-08-06)
+
+
+### Features
+
+* **utils:** add todo for ZodRecord ([ae66959](https://github.com/UNDERCOVERj/zod-plugins/commit/ae6695993dd77744fb1d228a73fdb3548e50490a))
+
+
+### Bug Fixes
+
+* **utils:** add record support and fix type infer logic ([ba5d348](https://github.com/UNDERCOVERj/zod-plugins/commit/ba5d348b2f62957b7635c5770153120aa085b0d5))
+* **utils:** let to const ([4e9f906](https://github.com/UNDERCOVERj/zod-plugins/commit/4e9f906ed97e6a38d96c9a021b5f5c5730b38c59))
+
 ### [0.1.9](https://github.com/UNDERCOVERj/zod-plugins/compare/utils-0.1.8...utils-0.1.9) (2022-08-02)
 
 ### [0.1.8](https://github.com/UNDERCOVERj/zod-plugins/compare/utils-0.1.7...utils-0.1.8) (2022-08-02)
