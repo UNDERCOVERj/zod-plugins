@@ -3,6 +3,7 @@
   "version": 2,
   "projects": {
     "utils": "packages/utils",
-    "zod-describe": "packages/zod-describe"
+    "zod-describe": "packages/zod-describe",
+    "numeric": "packages/numeric"
   }
 }

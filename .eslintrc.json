@@ -1,7 +1,7 @@
 {
   "root": true,
   "ignorePatterns": ["**/*"],
-  "plugins": ["@nrwl/nx", "prettier", "import"],
+  "plugins": ["@nrwl/nx", "prettier"],
   "extends": ["prettier"],
   "overrides": [
     {
@@ -20,7 +20,9 @@
             ]
           }
         ],
-        "@typescript-eslint/consistent-type-imports": ["error"]
+        "@typescript-eslint/consistent-type-definitions": ["error", "interface"],
+        "no-duplicate-imports": "off",
+        "@typescript-eslint/consistent-type-imports": ["error", { "prefer": "type-imports" }]
       }
     },
     {
@@ -54,27 +56,6 @@
         "tabWidth": 2,
         "trailingComma": "all",
         "useTabs": false
-      }
-    ],
-    // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/order.md
-    "import/order": [
-      "error",
-      {
-        "alphabetize": {
-          "caseInsensitive": true,
-          "order": "asc"
-        },
-        "groups": [["builtin", "external"], "parent", "sibling", "index"],
-        "pathGroups": [
-          {
-            "pattern": "@/**",
-            "group": "parent"
-          },
-          {
-            "pattern": "@@/**",
-            "group": "external"
-          }
-        ]
       }
     ]
   }

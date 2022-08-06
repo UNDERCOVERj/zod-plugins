@@ -3,12 +3,13 @@
   "version": "0.1.3",
   "type": "commonjs",
   "keywords": [
-    "zod"
+    "zod",
+    "zod-plugins"
   ],
   "repository": {
     "type": "git",
     "url": "https://github.com/UNDERCOVERj/zod-plugins.git",
-    "directory": "packages/utils"
+    "directory": "packages/describe"
   },
   "dependencies": {},
   "devDependencies": {

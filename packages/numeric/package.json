@@ -1,15 +1,16 @@
 {
-  "name": "@zod-plugins/utils",
-  "version": "0.1.10",
+  "name": "@zod-plugins/numeric",
+  "version": "0.0.1",
   "type": "commonjs",
   "keywords": [
     "zod",
+    "numeric",
     "zod-plugins"
   ],
   "repository": {
     "type": "git",
     "url": "https://github.com/UNDERCOVERj/zod-plugins.git",
-    "directory": "packages/utils"
+    "directory": "packages/numeric"
   },
   "dependencies": {},
   "devDependencies": {

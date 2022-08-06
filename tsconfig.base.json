@@ -16,7 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "@zod-plugins/utils": ["packages/utils/src/index.ts"],
-      "@zod-plugins/zod-describe": ["packages/zod-describe/src/index.ts"]
+      "@zod-plugins/zod-describe": ["packages/zod-describe/src/index.ts"],
+      "@zod-plugins/numeric": ["packages/numeric/src/index.ts"]
     },
     "esModuleInterop": true
   },
