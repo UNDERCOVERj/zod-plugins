@@ -1,11 +1,15 @@
-# babel-plugins
+# zod-plugins
 
 Various zod plugins to help leverage zod in all sort so places
 
 ## Packages within this repository
 
 - ### [@zod-plugins/utils](./packages/utils/README.md)
+
   - some utils for zod
+
+- ### [@zod-plugins/numeric](./packages/numeric/README.md)
+  - `z.string().numeric();`
 
 # release command
 
