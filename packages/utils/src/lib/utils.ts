@@ -1,12 +1,10 @@
 import { z } from 'zod';
 
-declare type UnknownKeysParam = 'passthrough' | 'strict' | 'strip';
-
 function preParseSingle(schema: z.ZodTypeAny, value?: unknown): any {
   if (typeof value !== 'string') return value; // 可能为undefined
 
   if (schema instanceof z.ZodNumber) {
-    return Number(value);
+    return /^\d+$/.test(value) ? Number(value) : value;
   }
 
   if (
@@ -15,7 +13,12 @@ function preParseSingle(schema: z.ZodTypeAny, value?: unknown): any {
     schema instanceof z.ZodRecord ||
     schema instanceof z.ZodTuple
   ) {
-    return JSON.parse(value as string);
+    try {
+      const parsedData = JSON.parse(value as string);
+      return parsedData;
+    } catch {
+      return value;
+    }
   }
 
   if (schema instanceof z.ZodLazy) {
@@ -43,6 +46,30 @@ function preParseSingle(schema: z.ZodTypeAny, value?: unknown): any {
   return value;
 }
 
+function preParseToRecordOrObject<Schema extends z.ZodType = z.ZodType>(
+  schema: Schema,
+): Schema | undefined {
+  if (schema instanceof z.ZodRecord) {
+    return z.record(
+      schema.keySchema as any,
+      z.preprocess(val => preParseSingle(schema.valueSchema, val), schema.valueSchema) as any,
+    ) as unknown as Schema;
+  } else if (schema instanceof z.ZodObject) {
+    const newShape: any = {};
+    for (const key in schema.shape) {
+      const fieldSchema = schema.shape[key];
+      newShape[key] = z.preprocess(val => preParseSingle(fieldSchema, val), fieldSchema);
+    }
+
+    return new z.ZodObject({
+      ...schema._def,
+      shape: () => newShape,
+    }) as unknown as Schema;
+  }
+
+  return undefined;
+}
+
 /**
  * 将schema第一层的value做preprocess处理
  * 应用场景是一体化中为get请求做parse
@@ -59,34 +86,10 @@ function preParseSingle(schema: z.ZodTypeAny, value?: unknown): any {
   * ```
 ```
  */
-export function preParseFromRecordString<
-  T extends z.ZodRawShape,
-  UnknownKeys extends UnknownKeysParam = 'strip',
-  Catchall extends z.ZodTypeAny = z.ZodTypeAny,
-  Output = z.objectOutputType<T, Catchall>,
-  Input = z.objectInputType<T, Catchall>,
->(schema: z.ZodObject<T, UnknownKeys, Catchall, Output, Input> | z.ZodType) {
-  const newShape: any = {};
+export function preParseFromRecordString<Schema extends z.ZodType>(schema: Schema): Schema {
+  const result = preParseToRecordOrObject(schema instanceof z.ZodLazy ? schema.schema : schema);
 
-  // TODO z.ZodRecord
-  const zodObject =
-    schema instanceof z.ZodObject
-      ? schema
-      : schema instanceof z.ZodLazy && schema.schema instanceof z.ZodObject
-      ? schema.schema
-      : null;
-
-  if (zodObject) {
-    for (const key in zodObject.shape) {
-      const fieldSchema = zodObject.shape[key];
-      newShape[key] = z.preprocess(val => preParseSingle(fieldSchema, val), fieldSchema);
-    }
-
-    return new z.ZodObject({
-      ...zodObject._def,
-      shape: () => newShape,
-    }) as z.ZodObject<T, UnknownKeys, Catchall, Output, Input>;
-  }
+  if (result) return result;
 
   throw new Error('only support schema type: ZodObject、ZodLazy(() => ZodObject)');
 }

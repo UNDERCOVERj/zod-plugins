@@ -17,7 +17,8 @@
     "paths": {
       "@zod-plugins/utils": ["packages/utils/src/index.ts"],
       "@zod-plugins/zod-describe": ["packages/zod-describe/src/index.ts"]
-    }
+    },
+    "esModuleInterop": true
   },
   "exclude": ["node_modules", "tmp"]
 }
