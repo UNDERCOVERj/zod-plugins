@@ -6,7 +6,7 @@ import './base';
 export const I8_MIN = -BigInt('0x80');
 export const I8_MAX = BigInt('0x7f');
 
-z.ZodString.prototype.i8 = function (message: errorUtil.ErrMessage = 'Invalid i16 string') {
+z.ZodString.prototype.i8 = function (message: errorUtil.ErrMessage = 'Invalid i8 string') {
   return this.refine(arg => {
     if (!isInt(arg)) {
       return false;
