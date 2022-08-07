@@ -8,6 +8,14 @@ Various zod plugins to help leverage zod in all sort so places
 
   - some utils for zod
 
+- ### [@zod-plugins/string-validator](./packages/string-validator/README.md)
+
+  - `z.string().int();`
+  - `z.string().i8();`
+  - `z.string().i16();`
+  - `z.string().i32();`
+  - `z.string().i64();`
+
 - ### [@zod-plugins/numeric](./packages/numeric/README.md)
   - `z.string().numeric();`
 

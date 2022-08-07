@@ -4,6 +4,7 @@
   "projects": {
     "utils": "packages/utils",
     "zod-describe": "packages/zod-describe",
-    "numeric": "packages/numeric"
+    "numeric": "packages/numeric",
+    "string-validator": "packages/string-validator"
   }
 }
