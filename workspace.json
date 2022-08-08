@@ -5,6 +5,7 @@
     "utils": "packages/utils",
     "zod-describe": "packages/zod-describe",
     "numeric": "packages/numeric",
-    "string-validator": "packages/string-validator"
+    "string-validator": "packages/string-validator",
+    "number-validator": "packages/number-validator"
   }
 }

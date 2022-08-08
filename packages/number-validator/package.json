@@ -1,0 +1,23 @@
+{
+  "name": "@zod-plugins/number-validator",
+  "version": "0.0.1",
+  "type": "commonjs",
+  "keywords": [
+    "zod",
+    "number-validator",
+    "zod-plugins",
+    "validator"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/UNDERCOVERj/zod-plugins.git",
+    "directory": "packages/number-validator"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "tslib": "^2.4.0"
+  },
+  "peerDependencies": {
+    "zod": "^3.17.10"
+  }
+}

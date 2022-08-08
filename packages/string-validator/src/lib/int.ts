@@ -1,6 +1,6 @@
 import { z } from 'zod';
-import type { errorUtil } from 'zod/lib/helpers/errorUtil';
-import type { IntOptions } from './base';
+import './base';
+import type { IntOptions, IssueArg } from './base';
 
 // copy from https://github.com/validatorjs/validator.js/blob/master/src/lib/isInt.js
 const int = /^(?:[-+]?(?:0|[1-9][0-9]*))$/;
@@ -8,9 +8,19 @@ const intLeadingZeroes = /^[-+]?[0-9]+$/;
 
 z.ZodString.prototype.int = function (
   options?: IntOptions,
-  message: errorUtil.ErrMessage = 'Invalid int string',
+  issueArg: IssueArg = 'Invalid int string',
 ) {
-  return this.refine(arg => isInt(arg, options), message);
+  return new z.ZodString({
+    ...this._def,
+    customChecks: [
+      ...(this._def.customChecks || []),
+      (input, addIssue) => {
+        if (!isInt(input, options)) {
+          addIssue(issueArg);
+        }
+      },
+    ],
+  });
 };
 
 export function isInt(arg: string, options?: IntOptions) {
