@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.0.2](https://github.com/UNDERCOVERj/zod-plugins/compare/string-validator-0.0.1...string-validator-0.0.2) (2022-08-08)
+
+
+### Features
+
+* **validator:** add number and string validator ([9e4e568](https://github.com/UNDERCOVERj/zod-plugins/commit/9e4e56896faea66e3e378aacf2da3d8b9f03210a))
+
 ### 0.0.1 (2022-08-07)
 
 
