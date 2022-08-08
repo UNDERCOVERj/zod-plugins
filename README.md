@@ -7,17 +7,18 @@ Various zod plugins to help leverage zod in all sort so places
 - ### [@zod-plugins/utils](./packages/utils/README.md)
 
   - some utils for zod
+    - preParseFromRecordString
 
 - ### [@zod-plugins/string-validator](./packages/string-validator/README.md)
 
   - `z.string().int();`
+  - `z.string().i64();`
+
+- ### [@zod-plugins/number-validator](./packages/number-validator/README.md)
+
   - `z.string().i8();`
   - `z.string().i16();`
   - `z.string().i32();`
-  - `z.string().i64();`
-
-- ### [@zod-plugins/numeric](./packages/numeric/README.md)
-  - `z.string().numeric();`
 
 # release command
 
