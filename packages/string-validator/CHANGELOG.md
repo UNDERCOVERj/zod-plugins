@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.0.3](https://github.com/UNDERCOVERj/zod-plugins/compare/string-validator-0.0.2...string-validator-0.0.3) (2022-08-09)
+
+
+### Features
+
+* add kind to CustomCheck ([584cf77](https://github.com/UNDERCOVERj/zod-plugins/commit/584cf7736d1cdb84985c588dca0b54f399fa7c0a))
+
 ### [0.0.2](https://github.com/UNDERCOVERj/zod-plugins/compare/string-validator-0.0.1...string-validator-0.0.2) (2022-08-08)
 
 
