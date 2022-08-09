@@ -10,6 +10,11 @@ export interface IntOptions {
 
 export type IssueArg = string | { message?: string | undefined; fatal?: boolean };
 
+export interface CustomCheck {
+  (input: string, addIssue: (arg?: IssueArg) => void, ctx: z.ParseContext): void;
+  kind: string;
+}
+
 declare module 'zod' {
   interface ZodString {
     // check a string is a int string
@@ -19,9 +24,7 @@ declare module 'zod' {
   }
 
   interface ZodStringDef {
-    customChecks?: Array<
-      (input: string, addIssue: (arg?: IssueArg) => void, ctx: z.ParseContext) => void
-    >;
+    customChecks?: Array<CustomCheck>;
   }
 }
 

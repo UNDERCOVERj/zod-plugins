@@ -9,5 +9,12 @@ describe('zod-int-validator', () => {
     expect(z.string().int().safeParse('a').success).toBeFalsy();
     expect(z.string().int().safeParse('101').success).toBeTruthy();
     expect(z.string().int().safeParse('010').success).toBeFalsy();
+
+    expect(
+      z
+        .string()
+        .int()
+        ._def.customChecks?.map(item => item.kind),
+    ).toEqual(['int']);
   });
 });

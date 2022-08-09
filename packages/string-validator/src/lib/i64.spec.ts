@@ -18,5 +18,13 @@ describe('zod-i64-validator', () => {
     ).toBeFalsy();
     expect(z.string().int().safeParse('aaa').success).toBeFalsy();
     expect(z.string().int().safeParse('010').success).toBeFalsy();
+
+    expect(
+      z
+        .string()
+        .i64()
+        .int()
+        ._def.customChecks?.map(item => item.kind),
+    ).toEqual(['i64', 'int']);
   });
 });
