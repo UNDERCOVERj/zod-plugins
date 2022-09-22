@@ -37,6 +37,7 @@ describe('utils', () => {
       l: z.preprocess(val => JSON.parse(val as string), z.number().array()),
       m: z.number().array().array(),
       n: z.string().transform(val => z.number().parse(val && Number(val))),
+      o: z.number(),
     });
 
     const inputData = {
@@ -55,6 +56,7 @@ describe('utils', () => {
       l: [1, 2],
       m: [[1], [2]],
       n: '123',
+      o: -1,
     };
 
     const result = preParseFromRecordString(schema).safeParse(

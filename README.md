@@ -23,7 +23,12 @@ Various zod plugins to help leverage zod in all sort so places
 # release command
 
 ```
+git config user.name "FIRST_NAME LAST_NAME"
+git config user.email "MY_NAME@example.com"
+
 nx build my-project
 nx version my-project
 nx publish my-project --ver=xxx
+
+// nx version utils --releaseAs=patch代替version+publish
 ```

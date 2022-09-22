@@ -4,7 +4,7 @@ function preParseSingle(schema: z.ZodTypeAny, value?: unknown): any {
   if (typeof value !== 'string') return value; // 可能为undefined
 
   if (schema instanceof z.ZodNumber) {
-    return /^\d+$/.test(value) ? Number(value) : value;
+    return /^[-]?\d+$/.test(value) ? Number(value) : value;
   }
 
   if (
