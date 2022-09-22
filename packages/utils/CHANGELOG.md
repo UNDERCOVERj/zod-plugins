@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.1.11](https://github.com/UNDERCOVERj/zod-plugins/compare/utils-0.1.10...utils-0.1.11) (2022-09-22)
+
+
+### Features
+
+* **numeric:** add numeric sugar for ZodString ([f0209e2](https://github.com/UNDERCOVERj/zod-plugins/commit/f0209e2ca77f5ce5c3a0854fd7a20b64b705976e))
+
 ### [0.1.10](https://github.com/UNDERCOVERj/zod-plugins/compare/utils-0.1.9...utils-0.1.10) (2022-08-06)
 
 
